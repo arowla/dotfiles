@@ -62,4 +62,14 @@ else
 fi
 }
 
+install_antigen () {
+if [[ ! -e $home/antigen.zsh ]]; then
+    curl -L https://raw.githubusercontent.com/zsh-users/antigen/master/antigen.zsh > $HOME/antigen.zsh
+    cd $HOME
+    source antigen.zsh
+    cd dotfiles
+fi
+}
+
 #install_zsh
+install_antigen
