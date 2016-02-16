@@ -1,6 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
-let g:netrw_dirhist_1='/Users/alisonrowland/projects/about_yml/bin'
-let g:netrw_dirhist_2='/Users/alisonrowland/projects/fbopen/loaders/attachments/base'
-let g:netrw_dirhist_3='/Users/alisonrowland/projects/Cachet-cf/.bp-config'
-let g:netrw_dirhist_4='/Users/alisonrowland/projects/api-umbrella/build/work'
