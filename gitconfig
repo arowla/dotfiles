@@ -1,21 +1,23 @@
 [user]
-	email = alison.rowland@gsa.gov
 	name = arowla
+	email = arowland@doc.gov
 [credential]
 	helper = osxkeychain
 [alias]
 	st = status -s
+    sth = stash
 	du = diff
 	ds = diff --staged
 	co = checkout
 	ci = commit
 	cp = cherry-pick
-	db = diff master..HEAD --ignore-space-change
-	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    db = diff master..HEAD --ignore-space-change
+    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    lb = log master.. --pretty=oneline
 
 [core]
-	excludesfile = /Users/alisonrowland/.gitignore
-	editor = /usr/local/bin/vim
+	excludesfile = ~/.gitignore
+	editor = /usr/bin/env vim
 [color]
 	diff = auto
 	status = auto
@@ -24,15 +26,8 @@
 	tool = meld
 [branch]
 	autosetupmerge = true
-	
 [push]
 	default = simple
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
 [filter "lfs"]
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
