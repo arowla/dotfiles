@@ -5,32 +5,34 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " let Vundle manage Vundle, required
-Bundle 'VundleVim/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 
 " My Bundles here:
 "
 " original repos on github
-Bundle 'tpope/vim-surround'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'alfredodeza/pytest.vim'
-Bundle 'corntrace/bufexplorer'
-Bundle 'Lokaltog/vim-distinguished'
-Bundle 'nvie/vim-flake8'
-Bundle 'plasticboy/vim-markdown'
-Bundle 'csexton/jekyll.vim'
-Bundle 'groenewege/vim-less'
-Bundle 'hail2u/vim-css3-syntax'
-Bundle 'skammer/vim-css-color'
+Plugin 'tpope/vim-surround'
+"Plugin 'Lokaltog/vim-easymotion'
+Plugin 'alfredodeza/pytest.vim'
+Plugin 'corntrace/bufexplorer'
+"Plugin 'Lokaltog/vim-distinguished'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'csexton/jekyll.vim'
+Plugin 'groenewege/vim-less'
+"Plugin 'hail2u/vim-css3-syntax'
+"Plugin 'skammer/vim-css-color'
+Plugin 'scrooloose/syntastic'
 " vim-scripts repos
-Bundle 'css_color.vim'
-Bundle 'L9'
-Bundle 'FuzzyFinder'
-Bundle 'python.vim'
+"Plugin 'css_color.vim'
+Plugin 'L9'
+Plugin 'FuzzyFinder'
+Plugin 'python.vim'
+Plugin 'ekalinin/Dockerfile.vim'
 
 " all plugins must be added before this line
 call vundle#end()
 
 filetype plugin indent on " required!
+syntax on
 set ai
 set autochdir
 set backspace=2
@@ -57,9 +59,20 @@ let python_space_errors = 1
 let ruby_space_errors = 1
 let g:vim_markdown_folding_disabled=1
 
+" syntastic settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+" end syntastic settings
+
 colorscheme elflord
-autocmd FileType python map ,8 :call Flake8()<CR>
-autocmd BufWritePost *.py call Flake8()
+" autocmd FileType python map ,8 :call Flake8()<CR>
+" autocmd BufWritePost *.py call Flake8()
 
 map ,b :BufExplorer<CR>
 map ,l :set list!<CR>
