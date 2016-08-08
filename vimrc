@@ -1,35 +1,32 @@
 set nocompatible
-filetype off " required by Vundle!
-
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
 
 " let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+Plug 'VundleVim/Vundle.vim'
 
 " My Bundles here:
 "
 " original repos on github
-Plugin 'tpope/vim-surround'
+Plug 'tpope/vim-surround'
 "Plugin 'Lokaltog/vim-easymotion'
-Plugin 'alfredodeza/pytest.vim'
-Plugin 'corntrace/bufexplorer'
+Plug 'alfredodeza/pytest.vim'
+Plug 'corntrace/bufexplorer'
 "Plugin 'Lokaltog/vim-distinguished'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'csexton/jekyll.vim'
-Plugin 'groenewege/vim-less'
+Plug 'plasticboy/vim-markdown'
+Plug 'csexton/jekyll.vim'
+Plug 'groenewege/vim-less'
 "Plugin 'hail2u/vim-css3-syntax'
 "Plugin 'skammer/vim-css-color'
-Plugin 'scrooloose/syntastic'
+Plug 'scrooloose/syntastic'
 " vim-scripts repos
 "Plugin 'css_color.vim'
-Plugin 'L9'
-Plugin 'FuzzyFinder'
-Plugin 'python.vim'
-Plugin 'ekalinin/Dockerfile.vim'
+Plug 'L9'
+Plug 'FuzzyFinder'
+Plug 'python.vim'
+Plug 'ekalinin/Dockerfile.vim'
 
 " all plugins must be added before this line
-call vundle#end()
+call plug#end()
 
 filetype plugin indent on " required!
 syntax on
@@ -65,9 +62,21 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
+let g:syntastic_loc_list_height = 5
+let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+let g:syntastic_check_on_wq = 1
+let g:syntastic_javascript_checkers = ['eslint']
+
+let g:syntastic_error_symbol = '❌'
+let g:syntastic_style_error_symbol = '⁉️'
+let g:syntastic_warning_symbol = '⚠️'
+let g:syntastic_style_warning_symbol = '💩'
+
+highlight link SyntasticErrorSign SignColumn
+highlight link SyntasticWarningSign SignColumn
+highlight link SyntasticStyleErrorSign SignColumn
+highlight link SyntasticStyleWarningSign SignColumn
 " end syntastic settings
 
 colorscheme elflord
