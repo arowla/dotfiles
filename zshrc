@@ -10,7 +10,7 @@ antigen-use oh-my-zsh
 antigen bundle git
 antigen bundle pip
 antigen bundle python
-antigen bundle virtualenvwrapper
+#antigen bundle virtualenvwrapper
 antigen bundle kennethreitz/autoenv
 antigen bundle ssh-agent
 antigen bundle rbenv
