@@ -1,25 +1,22 @@
 set nocompatible
 call plug#begin('~/.vim/plugged')
 
-" let Vundle manage Vundle, required
-Plug 'VundleVim/Vundle.vim'
-
 " My Bundles here:
 "
 " original repos on github
 Plug 'tpope/vim-surround'
-"Plugin 'Lokaltog/vim-easymotion'
+"Plug 'Lokaltog/vim-easymotion'
 Plug 'alfredodeza/pytest.vim'
 Plug 'corntrace/bufexplorer'
-"Plugin 'Lokaltog/vim-distinguished'
+"Plug 'Lokaltog/vim-distinguished'
 Plug 'plasticboy/vim-markdown'
 Plug 'csexton/jekyll.vim'
 Plug 'groenewege/vim-less'
-"Plugin 'hail2u/vim-css3-syntax'
-"Plugin 'skammer/vim-css-color'
+"Plug 'hail2u/vim-css3-syntax'
+"Plug 'skammer/vim-css-color'
 Plug 'scrooloose/syntastic'
 " vim-scripts repos
-"Plugin 'css_color.vim'
+"Plug 'css_color.vim'
 Plug 'L9'
 Plug 'FuzzyFinder'
 Plug 'python.vim'
