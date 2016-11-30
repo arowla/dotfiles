@@ -1,9 +1,6 @@
 set nocompatible
-call plug#begin('~/.vim/plugged')
+call plug#begin('/Users/RowlandA/.vim/plugged')
 
-" My Bundles here:
-"
-" original repos on github
 Plug 'tpope/vim-surround'
 "Plug 'Lokaltog/vim-easymotion'
 Plug 'alfredodeza/pytest.vim'
@@ -14,7 +11,10 @@ Plug 'csexton/jekyll.vim'
 Plug 'groenewege/vim-less'
 "Plug 'hail2u/vim-css3-syntax'
 "Plug 'skammer/vim-css-color'
+Plug 'flazz/vim-colorschemes'
 Plug 'scrooloose/syntastic'
+Plug 'godlygeek/tabular'
+Plug 'rubik/vim-radon'
 " vim-scripts repos
 "Plug 'css_color.vim'
 Plug 'L9'
@@ -25,8 +25,8 @@ Plug 'ekalinin/Dockerfile.vim'
 " all plugins must be added before this line
 call plug#end()
 
+syntax enable
 filetype plugin indent on " required!
-syntax on
 set ai
 set autochdir
 set backspace=2
@@ -64,21 +64,25 @@ let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
 let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_python_checkers = ['pylint']
 
-let g:syntastic_error_symbol = '❌'
-let g:syntastic_style_error_symbol = '⁉️'
-let g:syntastic_warning_symbol = '⚠️'
-let g:syntastic_style_warning_symbol = '💩'
+" let g:syntastic_error_symbol = '❌'
+" let g:syntastic_style_error_symbol = '⁉️'
+" let g:syntastic_warning_symbol = '⚠️'
+" let g:syntastic_style_warning_symbol = '💩'
 
-highlight link SyntasticErrorSign SignColumn
-highlight link SyntasticWarningSign SignColumn
-highlight link SyntasticStyleErrorSign SignColumn
-highlight link SyntasticStyleWarningSign SignColumn
-" end syntastic settings
+" highlight link SyntasticErrorSign SignColumn
+" highlight link SyntasticWarningSign SignColumn
+" highlight link SyntasticStyleErrorSign SignColumn
+" highlight link SyntasticStyleWarningSign SignColumn
+" " end syntastic settings
 
 colorscheme elflord
 " autocmd FileType python map ,8 :call Flake8()<CR>
 " autocmd BufWritePost *.py call Flake8()
+if &diff
+    colorscheme peaksea
+endif
 
 map ,b :BufExplorer<CR>
 map ,l :set list!<CR>
