@@ -1,0 +1,11 @@
+"*":
+  core:
+    telemetryConsent: "limited"
+  "exception-reporting":
+    userId: "4c4a98cc-fc18-ae5e-661d-84b51995f64e"
+  linter: {}
+  "linter-pylama":
+    ignoreErrorsAndWarnings: "D100,D101,D103,D203,D212,D213,D404,E221,E302,E501"
+    useIsort: true
+    usePep257: false
+  "tree-view": {}

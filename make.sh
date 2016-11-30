@@ -8,7 +8,7 @@
 
 dir=~/projects/dotfiles                    # dotfiles directory
 olddir=~/projects/dotfiles_old             # old dotfiles backup directory
-files="bashrc gitconfig vimrc vim zshrc oh-my-zsh private scrotwm.conf Xresources"    # list of files/folders to symlink in homedir
+files="atom bashrc gitconfig vimrc vim zshrc oh-my-zsh private scrotwm.conf Xresources"    # list of files/folders to symlink in homedir
 
 ##########
 
