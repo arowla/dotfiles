@@ -6,8 +6,8 @@
 
 ########## Variables
 
-dir=~/projects/dotfiles                    # dotfiles directory
-olddir=~/projects/dotfiles_old             # old dotfiles backup directory
+dir=~/dotfiles                    # dotfiles directory
+olddir=~/dotfiles_old             # old dotfiles backup directory
 files="atom bashrc gitconfig vimrc vim zshrc oh-my-zsh private scrotwm.conf Xresources"    # list of files/folders to symlink in homedir
 
 ##########
@@ -64,7 +64,7 @@ fi
 
 install_antigen () {
 if [[ ! -e $home/antigen.zsh ]]; then
-    curl -L https://raw.githubusercontent.com/zsh-users/antigen/master/antigen.zsh > $HOME/antigen.zsh
+    curl -L https://cdn.rawgit.com/zsh-users/antigen/v1.3.0/bin/antigen.zsh > $HOME/antigen.zsh
     cd $HOME
     source antigen.zsh
     cd $dir

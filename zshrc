@@ -13,6 +13,7 @@ source $HOME/antigen.zsh
 autoload -U colors && colors
 setopt promptsubst
 antigen-use oh-my-zsh
+antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle git
 #antigen bundle pip
 #antigen bundle python
