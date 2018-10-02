@@ -1,19 +1,19 @@
 [user]
 	name = arowla
-	email = arowland@doc.gov
+	email = alisonrowland@gmail.com
 [credential]
 	helper = osxkeychain
 [alias]
 	st = status -s
-    sth = stash
+        sta = stash
 	du = diff
 	ds = diff --staged
 	co = checkout
 	ci = commit
 	cp = cherry-pick
-    db = diff master..HEAD --ignore-space-change
-    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-    lb = log master.. --pretty=oneline
+        db = diff master..HEAD --ignore-space-change
+        lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+        lb = log master.. --pretty=oneline
 
 [core]
 	excludesfile = ~/.gitignore
