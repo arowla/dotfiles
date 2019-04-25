@@ -1,32 +1,36 @@
-[ -e "${HOME}/.zsh_aliases" ] && source "${HOME}/.zsh_aliases"
-[ -e "${HOME}/.zshrc_local" ] && source "${HOME}/.zshrc_local"
+source /usr/local/share/antigen/antigen.zsh
 
-#To use Homebrew's directories rather than ~/.pyenv add to your profile:
-export PYENV_ROOT=/usr/local/var/pyenv
+# Homebrew completions. Must be called before oh-my-zsh.
+# if type brew &>/dev/null; then
+#   FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+# fi
 
-#To enable shims and autocompletion add to your profile:
-if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
-# You MUST use npm to install npm, which supplies completion.sh
-# source /usr/local/lib/node_modules/npm/lib/utils/completion.sh
-source $HOME/antigen.zsh
-autoload -U colors && colors
-setopt promptsubst
-antigen-use oh-my-zsh
-antigen bundle zsh-users/zsh-syntax-highlighting
+# Load the oh-my-zsh's library.
+antigen use oh-my-zsh
+
+# Bundles from the default repo (robbyrussell's oh-my-zsh).
 antigen bundle git
-#antigen bundle pip
-#antigen bundle python
-#antigen bundle virtualenvwrapper
-antigen bundle kennethreitz/autoenv
-antigen bundle ssh-agent
-#antigen bundle rbenv
-antigen bundle pyenv
-#antigen bundle nvm
+antigen bundle heroku
+antigen bundle pip
+antigen bundle command-not-found
 
-antigen-theme awesomepanda
+# Syntax highlighting bundle.
+antigen bundle zsh-users/zsh-syntax-highlighting
 
-antigen-apply
+# Load the theme.
+antigen theme awesomepanda
 
-export NVM_DIR="/Users/RowlandA/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+# Tell Antigen that you're done.
+antigen apply
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /Users/alisonrowland/.nvm/versions/node/v8.11.4/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/alisonrowland/.nvm/versions/node/v8.11.4/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /Users/alisonrowland/.nvm/versions/node/v8.11.4/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/alisonrowland/.nvm/versions/node/v8.11.4/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
