@@ -1,2 +1,3 @@
 --type-add=markdown=.md
 --type-add=md=.md
+--ignore-dir=venv
