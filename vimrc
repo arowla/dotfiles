@@ -1,29 +1,34 @@
 set nocompatible
-call plug#begin('/Users/RowlandA/.vim/plugged')
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-Plug 'tpope/vim-surround'
-"Plug 'Lokaltog/vim-easymotion'
-Plug 'alfredodeza/pytest.vim'
-Plug 'corntrace/bufexplorer'
-"Plug 'Lokaltog/vim-distinguished'
-Plug 'plasticboy/vim-markdown'
-Plug 'csexton/jekyll.vim'
-Plug 'groenewege/vim-less'
-"Plug 'hail2u/vim-css3-syntax'
-"Plug 'skammer/vim-css-color'
-Plug 'flazz/vim-colorschemes'
-Plug 'scrooloose/syntastic'
-Plug 'godlygeek/tabular'
-Plug 'rubik/vim-radon'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-dispatch'
+"Plugin 'Lokaltog/vim-easymotion'
+Plugin 'alfredodeza/pytest.vim'
+Plugin 'corntrace/bufexplorer'
+"Plugin 'Lokaltog/vim-distinguished'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'csexton/jekyll.vim'
+Plugin 'groenewege/vim-less'
+"Plugin 'hail2u/vim-css3-syntax'
+"Plugin 'skammer/vim-css-color'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'scrooloose/syntastic'
+Plugin 'godlygeek/tabular'
+Plugin 'rubik/vim-radon'
+Plugin 'junegunn/vim-easy-align'
 " vim-scripts repos
-"Plug 'css_color.vim'
-Plug 'L9'
-Plug 'FuzzyFinder'
-Plug 'python.vim'
-Plug 'ekalinin/Dockerfile.vim'
+"Plugin 'css_color.vim'
+Plugin 'L9'
+Plugin 'FuzzyFinder'
+Plugin 'python.vim'
+" Plugin 'ekalinin/Dockerfile.vim'
+Plugin 'janko-m/vim-test'
 
 " all plugins must be added before this line
-call plug#end()
+call vundle#end()
 
 syntax enable
 filetype plugin indent on " required!
@@ -54,9 +59,10 @@ let ruby_space_errors = 1
 let g:vim_markdown_folding_disabled=1
 
 " syntastic settings
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+set statusline=%f\ -\ FileType:\ %y
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_loc_list_height = 5
@@ -65,6 +71,9 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_python_checkers = ['pylint']
+
+" vim-test
+let test#strategy = "dispatch"
 
 " let g:syntastic_error_symbol = '❌'
 " let g:syntastic_style_error_symbol = '⁉️'
@@ -76,6 +85,8 @@ let g:syntastic_python_checkers = ['pylint']
 " highlight link SyntasticStyleErrorSign SignColumn
 " highlight link SyntasticStyleWarningSign SignColumn
 " " end syntastic settings
+"
+au BufNewFile,BufRead *.yaml,*.yml so ~/.vim/yaml.vim
 
 colorscheme elflord
 " autocmd FileType python map ,8 :call Flake8()<CR>
@@ -87,15 +98,29 @@ endif
 map ,b :BufExplorer<CR>
 map ,l :set list!<CR>
 map ,v :e ~/.vimrc<CR>
-nmap ,V :! source ~/.vimrc<CR>
+nmap ,V :so ~/.vimrc<CR>
 map ,p <Esc>:set paste!<CR>
 map ,o o<Esc>
 map ,O O<Esc>
 map ,c <Esc>:set ignorecase!<CR>
 map ,h <Esc>:set hls!<CR>
+"
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
+" For janko/vim-test
+" these 'Ctrl mappings' work well when Caps Lock is mapped to Ctrl
+nmap <silent> ,t<C-n> :TestNearest<CR>
+nmap <silent> ,T<C-f> :TestFile<CR>
+nmap <silent> ,Ta :TestSuite<CR>
+nmap <silent> ,Tl<C-l> :TestLast<CR>
+nmap <silent> ,tv<C-g> :TestVisit<CR>
+
 nmap ,wt :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 " Change selected text from NameLikeThis to name_like_this.
 vnoremap ,u :s/\<\@!\([A-Z]\)/\_\l\1/g<CR>gul
 " Change selected text from name_like_this to NameLikeThis.
 vnoremap ,c :s/_\([a-z]\)/\u\1/g<CR>gUl
-
